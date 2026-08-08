@@ -391,7 +391,7 @@ RBIMPL_WARNING_POP()
 // Not sure why effective even after popped.
 #endif
 
-#include "/home/groobiest/Code/jart/cosmopolitan/o/third_party/ruby/generated/parse.h"
+#include "third_party/ruby/parse.h"
 
 #define NO_LEX_CTXT (struct lex_context){0}
 

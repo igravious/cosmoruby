@@ -19,7 +19,7 @@ endif
 
 ifeq ($(RUBY_YJIT_ENABLED),1)
 
-CARGO := $(shell command -v cargo 2>/dev/null)
+CARGO ?= $(shell command -v cargo 2>/dev/null)
 
 # Track Rust source files for dependency detection
 YJIT_RUST_SRCS := $(wildcard \

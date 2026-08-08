@@ -26,8 +26,13 @@ include third_party/build/mtdeps/BUILD.mk
 include examples/rubyapps/BUILD.mk
 
 # Require bootstrap mtdeps for dependency generation.
+# Exception: when MKDEPS is passed on the command line (as done by
+# cosmo_configure.sh --bootstrap with the mkdeps stub), skip the check so the
+# bootstrap build that produces build/bootstrap/mtdeps can actually run.
 ifeq ($(wildcard build/bootstrap/mtdeps),)
+ifneq ($(origin MKDEPS),command line)
 $(error Missing build/bootstrap/mtdeps. Run third_party/ruby/cosmo_configure.sh --bootstrap)
+endif
 else
 MKDEPS := build/bootstrap/mtdeps -P ruby_shims/
 endif

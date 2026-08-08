@@ -59,6 +59,7 @@ o/$(MODE)/third_party/mexican_toaster/mtsh.o:		\
 		third_party/mexican_toaster/mtsh/util.inc	\
 		third_party/mexican_toaster/mtsh/tokenize.inc	\
 		third_party/mexican_toaster/mtsh/entry.inc
+	@$(COMPILE) -AOBJECTIFY.c $(OBJECTIFY.c) -c $< -o $@
 
 o/$(MODE)/third_party/mexican_toaster/mtsh.com.dbg:	\
 		$$(THIRD_PARTY_MEXICAN_TOASTER_DEPS)		\
@@ -100,6 +101,7 @@ o/$(MODE)/third_party/mexican_toaster/mtsh_embed.o:	\
 		third_party/mexican_toaster/mtsh/util.inc	\
 		third_party/mexican_toaster/mtsh/tokenize.inc	\
 		third_party/mexican_toaster/mtsh/entry.inc
+	@$(COMPILE) -AOBJECTIFY.c $(OBJECTIFY.c) -c $< -o $@
 
 o/$(MODE)/third_party/mexican_toaster/caboose.dbg:	\
 		$$(THIRD_PARTY_MEXICAN_TOASTER_DEPS)		\

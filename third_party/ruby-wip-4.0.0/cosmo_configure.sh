@@ -56,8 +56,8 @@ echo "cosmo_configure: MODE=${MODE} (using $RUBY_BIN)"
     exit 1
   fi
   echo "cosmo_configure: building automate_mkdeps + mtdeps with stub mkdeps"
-  make -C "$ROOT" MKDEPS="$STUB" -j1 o//third_party/build/mtdeps/automate_mkdeps
-  make -C "$ROOT" MKDEPS="$STUB" -j1 o//third_party/build/mtdeps/mtdeps
+  make -C "$ROOT" MKDEPS="$STUB" -j"${BOOTSTRAP_JOBS:-$(nproc)}" o//third_party/build/mtdeps/automate_mkdeps
+  make -C "$ROOT" MKDEPS="$STUB" -j"${BOOTSTRAP_JOBS:-$(nproc)}" o//third_party/build/mtdeps/mtdeps
   mkdir -p "$ROOT/build/bootstrap"
   cp "$ROOT/o//third_party/build/mtdeps/automate_mkdeps" "$ROOT/build/bootstrap/automate_mkdeps"
   cp "$ROOT/o//third_party/build/mtdeps/mtdeps" "$ROOT/build/bootstrap/mtdeps"

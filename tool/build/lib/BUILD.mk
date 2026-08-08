@@ -67,6 +67,15 @@ TOOL_BUILD_LIB_BINS =					\
 	$(TOOL_BUILD_LIB_COMS)				\
 	$(TOOL_BUILD_LIB_COMS:%=%.dbg)
 
+$(TOOL_BUILD_LIB_A):					\
+		tool/build/lib/				\
+		$(TOOL_BUILD_LIB_A).pkg			\
+		$(TOOL_BUILD_LIB_A_OBJS)
+
+$(TOOL_BUILD_LIB_A).pkg:				\
+		$(TOOL_BUILD_LIB_A_OBJS)		\
+		$(foreach x,$(TOOL_BUILD_LIB_A_DIRECTDEPS),$($(x)_A).pkg)
+
 ifeq ($(ARCH), x86_64)
 o/$(MODE)/tool/build/lib/ssefloat.o: private		\
 		TARGET_ARCH +=				\
